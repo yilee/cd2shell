@@ -1,12 +1,13 @@
 --注册系统快捷键
 
 on run argv
-	set argc to  count of argv
+	set argc to count of argv
 	if (argc > 0) then
-		openFinder("测试")
+		openFinder()
 	else
 		openTerminal()
 	end if
+	return
 end run
 
 --从finder打开terminal
@@ -31,8 +32,19 @@ on openTerminal()
 end openTerminal
 
 --从terminal打开finder
-on openFinder(path)
-	tell application "Finder"
-		display dialog path as text buttons {"OK"}
+on openFinder()
+	--得到pwd值
+	tell application "Terminal"
+		set finderPath to (do shell script "pwd") as text
 	end tell
+	
+	tell application "Finder"
+		do shell script "cd ."
+	end tell
+	
+	--窗口置顶
+	tell application "System Events" to tell process "Finder"
+		set frontmost to true
+	end tell
+	
 end openFinder
