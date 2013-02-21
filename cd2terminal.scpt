@@ -3,7 +3,7 @@
 on run argv
 	set argc to count of argv
 	if (argc > 0) then
-		openFinder()
+		--openFinder()
 	else
 		openTerminal()
 	end if
