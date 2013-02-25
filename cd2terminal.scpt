@@ -20,9 +20,7 @@ on openTerminal()
 	--激活
 	tell application "Terminal"
 		--activate
-		do script with command "cd " & currentPath in window 1
-		do script with command "clear" in window 1
-		do script with command "pwd" in window 1
+		do script with command "cd '" & currentPath & "';clear;pwd" in window 1
 	end tell
 	
 	--窗口置顶
