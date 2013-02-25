@@ -1,12 +1,7 @@
 --注册系统快捷键
 
 on run argv
-	set argc to count of argv
-	if (argc > 0) then
-		--openFinder()
-	else
-		openTerminal()
-	end if
+	openTerminal()
 	return
 end run
 
